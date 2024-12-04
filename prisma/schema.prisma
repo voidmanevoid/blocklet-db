@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Export {
+  id        String   @id @default(uuid())
+  wallet    String
+  name      String
+  avatar    String?
+  file      String?
+  url       String?
+  isPublic  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  votes     ExportVote[]
+}
+
+model ExportVote {
+  id      String  @id @default(uuid())
+  export  Export  @relation(fields: [exportId], references: [id])
+  exportId String
+  wallet  String
+  createdAt DateTime @default(now())
+}
+
+model SoundPack {
+  id       String  @id @default(uuid())
+  wallet   String
+  name     String
+  passport String?
+  sounds   Sound[]
+}
+
+model Sound {
+  id          String    @id @default(uuid())
+  url         String
+  key         String
+  type        String?
+  soundPack   SoundPack @relation(fields: [soundPackId], references: [id])
+  soundPackId String
+}

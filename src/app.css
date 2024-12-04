@@ -1,0 +1,324 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  text-align: center;
+}
+
+pre {
+  font-size: 0.75em;
+}
+
+/* Center the entire sampler */
+body {
+  /* margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; */
+  /* display: flex; */
+  background: #222 !important;
+  /* background-image: url(/bm-9000.jpeg); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  }
+
+/* Outer container that holds everything with a skin */
+.sampler-container {
+  /* width: 1140px; */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  /* background-color: #fff; */
+  /* border: 2px solid black; */
+  /* border-radius: 10px; */
+  padding: 20px;
+
+}
+
+/* BPM control box */
+/* .bpm-container {
+  min-height: 60px;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Container for knobs and pattern */
+.knobs-pattern-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 2px;
+  margin-top: 20px;
+}
+
+/* Knob box on the left-hand side with an image */
+.knob-outer-container-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 220px;
+  background-image: url(https://thedailyarc.did.life/image-bin/uploads/dfc025763a94502e9b7df915c807eadf.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-right: 2px;
+}
+
+/* Knob box on the right-hand side with an image */
+.knob-outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 220px;
+  background-image: url(https://thedailyarc.did.life/image-bin/uploads/dfc025763a94502e9b7df915c807eadf.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-left: 2px;
+}
+
+/* Inner box that holds the pattern buttons */
+.pattern-container {
+  /* width: 100%; */
+  /* height: 400px; */
+  /* display: grid; */
+  /* grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr); */
+  /* gap: 5px; */
+  padding-top: 26px;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-bottom: 16px;
+  border: 1px solid #4d4d4d;
+  /* border-radius: 6px; */
+  background-color: #2E2E2E;
+}
+
+/* Button (pad) Styling */
+/* .pad {
+  background-color: #f9faf1;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.2s, box-shadow 0.2s;  
+} */
+
+
+/* .pad-name {
+  width: 150px;
+  overflow-x: ellipsis;
+  text-align: left;
+} */
+
+.row-menu {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Knob container for both left and right knobs */
+.knob-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+/* Styling for each knob */
+.knob {
+  width: 25px;
+  height: 25px;
+  background-color: #080808;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 10px 0;
+  transition: background-color 0.2s;
+}
+
+.knob:hover {
+  background-color: #999;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column; /* Arrange rows vertically */
+  gap: 5px; /* Optional: space between rows */
+}
+
+.row {
+  display: flex;
+  gap: 5px; /* Optional: space between cells */
+}
+
+.cell {
+  margin-top: 6px;
+  width: 22px;
+  height: 22px;
+  background-color: lightgray;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Stay lit when button is pressed */
+.cell.active {
+  background-color: #ffeb3b;  /* Stay lit in yellow */
+  box-shadow: 0 0 15px 5px rgba(255, 235, 59, 0.6);  /* Glowing yellow shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for regular cells */
+.cell:hover {
+  background-color: #d1c23c;  /* Slightly darker yellow on hover */
+  box-shadow: 0 0 15px 5px rgba(255, 235, 59, 0.6);  /* Glowing yellow shadow */
+  cursor: pointer;  /* Show pointer on hover */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Faster transition on hover */
+}
+
+/* Hover effect for active cells */
+.cell.active:hover {
+  background-color: rgb(169, 169, 169);  /* Gray when active and hovered */
+  box-shadow: 0 0 10px 5px rgba(169, 169, 169, 0.6);  /* Subtle shadow for active state */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Glowing red effect for the button currently being played */
+.cell.glowing-red {
+  background-color: #ff0000;  /* Red background */
+  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.8);  /* Glowing red shadow */
+  transition: background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Slight scaling effect when clicking */
+.cell:active {
+  transform: scale(0.95);  /* Slightly shrink when pressed */
+  transition: transform 0.1s ease;
+}
+
+.sound-button {
+  width: 120px; /* Standard button width */
+  padding: 6px 16px; /* Ensure padding for Material-UI buttons */
+  display: inline-flex; /* Flex ensures proper alignment of text and icons */
+  justify-content: space-between; /* Align content */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sound-button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.controls-container {
+  border: 1px solid #4d4d4d;
+  /* border-radius: 6px; */
+  background-color: #2E2E2E;
+  /* width: 400px; */
+  /* padding-top: 2px; */
+  border: '1px solid #636363';
+}
+
+.main-container {
+  display: block;
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  /* margin: 10px; */
+}
+
+.menu-text {
+    color: gray;
+    cursor: default;
+    display: inline-block;
+    font-size: 16px !important;
+  }
+
+  .import-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .pattern-grid-container {
+    padding-top: 0px !important;
+  }
+
+  .cell.playing-column {
+    background-color: rgba(255, 255, 0, 0.3); /* Yellow highlight */
+    animation: pulse 0.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  
+  @keyframes smooth-move {
+    from {
+      left: var(--prev-left);
+    }
+    to {
+      left: var(--current-left);
+    }
+  }
+
+
+  /* .knob-base {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #333;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.6); */
+  /* } */
